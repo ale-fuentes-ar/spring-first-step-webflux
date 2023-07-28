@@ -1,0 +1,15 @@
+# this file has a configuration of container product-db
+version: "3"
+service:
+
+  product-db:
+    image: postgres:11
+    container_name: product-db
+    restart: alway # this property is valid only in test live cycle.
+    # The environment's values only has public because it is a test..
+    environment:
+      - POSTGRES_DB=product-db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=root
+    ports:
+      - 5432:5432
