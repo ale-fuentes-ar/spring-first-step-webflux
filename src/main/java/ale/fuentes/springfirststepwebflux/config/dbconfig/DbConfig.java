@@ -1,4 +1,4 @@
-package ale.fuentes.springfirststepwebflux.config;
+package ale.fuentes.springfirststepwebflux.config.dbconfig;
 
 import io.r2dbc.spi.ConnectionFactories;
 import io.r2dbc.spi.ConnectionFactory;
