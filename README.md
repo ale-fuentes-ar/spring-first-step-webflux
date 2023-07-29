@@ -3,20 +3,26 @@
 
 Hi guys, in this project I do a simple task ussing technology WebFlux.
 
-## 🔧 Technologies & Tools
+<a href="https://github.com/ale-fuentes-ar/spring-first-step-webflux">
+  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=ale-fuentes-ar&repo=spring-first-step-webflux&title_color=ffffff&text_color=c9cacc&icon_color=2bbc8a&bg_color=1d1f21" />
+</a>
+
+### 🔧 Technologies & Tools
 
 Some technology that I do ussing in this project:
 
-* SO : ![](https://img.shields.io/badge/OS-Windows-informational?style=flat&logo=windows&logoColor=white&color=0078d4)
-* IDE : ![](https://img.shields.io/badge/Editor-Intellij_IDEA-informational?style=flat&logo=intellij-idea&logoColor=white&color=000000)
-* Languages : ![](https://img.shields.io/badge/Code-Java-informational?style=flat&logo=java&logoColor=white&color=cdcdcd)
-  ![](https://img.shields.io/badge/Code-SpringBoot-informational?style=flat&logo=springboot&logoColor=white&color=6db33f)
-* Container : ![](https://img.shields.io/badge/Container-Docker-informational?style=flat&logo=docker&logoColor=white&color=2496ed)
+![](https://img.shields.io/badge/OS-Windows-informational?style=flat&logo=windows&logoColor=white&color=0078d4)
+![](https://img.shields.io/badge/Project_Manager-gradle-informational?style=flat&logo=Gradle&logoColor=white&color=02303a)
+![](https://img.shields.io/badge/Editor-Intellij_IDEA-informational?style=flat&logo=intellij-idea&logoColor=white&color=000000)
+![](https://img.shields.io/badge/Code-Java-informational?style=flat&logo=java&logoColor=white&color=cdcdcd)
+![](https://img.shields.io/badge/Code-SpringBoot-informational?style=flat&logo=springboot&logoColor=white&color=6db33f)
+![](https://img.shields.io/badge/Container-Docker-informational?style=flat&logo=docker&logoColor=white&color=2496ed)
+![](https://img.shields.io/badge/Data_Base-postgreSql-informational?style=flat&logo=Postgresql&logoColor=white&color=4169e1)
 
 
 > ### Postgresql in container
 > 
-> create docker file `df-product-db.yaml` for install instance of Postgresql database
+> The file `df-product-db.yaml` was created for install instance of Postgresql database
 > for to start, you can execute in CLI
 > ```shell
 > docker-compose -f df-product-db.yaml up --build -d
@@ -72,3 +78,12 @@ Next run it
 ```shell
 docker-compose up --build -d
 ```
+
+## Testing with Postman
+
+In this file [collection Potsman][link-postman-collection] can be get to collections for testing in [Postman][link-postman]
+
+
+<!-- links and references -->
+[link-postman-collection]:miscelaneas/First-Tutorial-WebFlux.postman_collection.json
+[link-postman]:https://www.postman.com/
