@@ -1,0 +1,12 @@
+server:
+  port: ${PORT:8081}
+
+spring:
+
+  application:
+    name: product-api
+
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:product}
+    username: ${DB_USER:admin}
+    password: ${DB_PASS:root}

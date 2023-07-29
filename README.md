@@ -22,3 +22,53 @@ Some technology that I do ussing in this project:
 > docker-compose -f df-product-db.yaml up --build -d
 > ```
 
+## Docker compose
+
+For up all project in containers, create a file `docker-compose.yaml` in same root path where was clone the project, and put this content:
+
+```shell
+version: "3"
+services:
+
+  # this is DB
+  product-db:
+    image: postgres:11
+    container_name: product-db
+    restart: always
+    networks:
+      - wf-product
+    environment:
+      - POSTGRES_DB=product
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=root
+    ports:
+      - 5432:5432
+
+  # this is our project
+  product-api:
+    build: './spring-first-step-webflux'
+    container_name: product-api
+    depends_on:
+      - product-db
+    networks:
+      - wf-product
+    environment:
+      - DB_HOST=product-db
+      - DB_PORT=5432
+      - DB_NAME=product
+      - DB_USER=admin
+      - DB_PASS=root
+    ports:
+      - 8081:8081
+
+networks:
+  wf-product:
+    driver: bridge
+
+```
+
+Next run it
+
+```shell
+docker-compose up --build -d
+```
