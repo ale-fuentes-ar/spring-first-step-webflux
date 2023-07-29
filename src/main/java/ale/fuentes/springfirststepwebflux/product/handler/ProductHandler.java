@@ -1,5 +1,7 @@
 package ale.fuentes.springfirststepwebflux.product.handler;
 
+import ale.fuentes.springfirststepwebflux.config.validation.ObjectValidator;
+import ale.fuentes.springfirststepwebflux.product.dto.ProductDto;
 import ale.fuentes.springfirststepwebflux.product.entity.Product;
 import ale.fuentes.springfirststepwebflux.product.repository.ProductRepository;
 import ale.fuentes.springfirststepwebflux.product.service.ProductService;
@@ -19,6 +21,7 @@ import reactor.core.publisher.Mono;
 public class ProductHandler {
 
     private final ProductService productService;
+    private final ObjectValidator objectValidator;
 
     public Mono<ServerResponse> getAll(ServerRequest request){
         Flux<Product> products = productService.getAll();
@@ -37,23 +40,23 @@ public class ProductHandler {
     }
 
     public Mono<ServerResponse> save(ServerRequest request){
-        Mono<Product> product = request.bodyToMono(Product.class);
+        Mono<ProductDto> dtoMono = request.bodyToMono(ProductDto.class).doOnNext(objectValidator::validate);
 
-        return product.flatMap(p ->
+        return dtoMono.flatMap(productDto ->
             ServerResponse.ok()
                     .contentType(MediaType.APPLICATION_JSON)
-                    .body(productService.save(p), Product.class)
+                    .body(productService.save(productDto), Product.class)
         );
     }
 
     public Mono<ServerResponse> update(ServerRequest request){
         int id = Integer.valueOf(request.pathVariable("id"));
-        Mono<Product> product = request.bodyToMono(Product.class);
+        Mono<ProductDto> dtoMono = request.bodyToMono(ProductDto.class).doOnNext(objectValidator::validate);
 
-        return product.flatMap(p ->
+        return dtoMono.flatMap(productDto ->
                 ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(productService.update(id, p), Product.class)
+                        .body(productService.update(id, productDto), Product.class)
         );
     }
 
