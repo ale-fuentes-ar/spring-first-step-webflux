@@ -20,6 +20,7 @@ Some technology that I do ussing in this project:
 ![](https://img.shields.io/badge/Data_Base-postgreSql-informational?style=flat&logo=Postgresql&logoColor=white&color=4169e1)
 
 
+
 > ### Postgresql in container
 > 
 > The file `df-product-db.yaml` was created for install instance of Postgresql database
@@ -27,6 +28,9 @@ Some technology that I do ussing in this project:
 > ```shell
 > docker-compose -f df-product-db.yaml up --build -d
 > ```
+
+
+> **NOTE**: make sure to start Docker Desktop before execute 
 
 ## Docker compose
 
